@@ -13,8 +13,8 @@
   --brand-text: #333333;
   --brand-muted: #666666;
   --brand-border: #f3c6c6;
-  --font-heading: 'Oswald', Arial, sans-serif;
-  --font-body: 'Montserrat', Arial, sans-serif;
+  --font-heading: 'Comic Relief', 'Comic Sans MS', cursive;
+  --font-body: 'Comic Relief', 'Comic Sans MS', cursive;
 }
 
 html {
