@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Marge Simpson green multipage portfolio demonstration for INFO1005 Website Design">
+  <meta name="author" content="INFO1005 Website Design">
+  <title>Marge Simpson | Home</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+
+  <!-- Same Google Font package as the Bart multipage template -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg sticky-top portfolio-nav" aria-label="Main portfolio navigation">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="img/margeicon.jpg" alt="Marge Simpson icon" class="brand-avatar">
+      <span>Marge Simpson</span>
+    </a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li><li class="nav-item"><a class="nav-link" href="about.html">About</a></li><li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li><li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li><li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-3">
+          <div class="form-check form-switch theme-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="themeSwitch">
+            <label class="form-check-label" for="themeSwitch">Dark</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="maincontent">
+  <section class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <p class="standout text-uppercase fw-bold">Responsive multipage portfolio template</p>
+          <h1>Marge Simpson</h1>
+
+          <h2 class="typing-heading">
+            <span class="typewrite"
+                  data-words='["Creative Professional","Web Designer","Visual Storyteller"]'
+                  aria-live="polite"></span>
+          </h2>
+
+          <p class="lead">I am a creative professional with more than 10 years of industry experience across website design, animation and visual effects, illustration, photography and app design. I enjoy combining technology and creativity to build tailored solutions and help clients tell their brand story.</p>
+
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a class="btn-portfolio" href="portfolio.html">View portfolio</a>
+            <a class="btn-portfolio" href="resume.html">View resume</a>
+          </div>
+        </div>
+
+        <div class="col-lg-5 text-center">
+          <img src="img/marge1.jpg" class="img-fluid hero-img" alt="Marge Simpson portfolio portrait">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <article class="feature-card p-4">
+          <i class="bi bi-window feature-icon"></i>
+          <h2 class="h3">Website Design</h2>
+          <p>Responsive layouts, Bootstrap 5.3 structure, custom CSS and audience-focused digital experiences.</p>
+        </article>
+      </div>
+      <div class="col-md-4">
+        <article class="feature-card p-4">
+          <i class="bi bi-brush feature-icon"></i>
+          <h2 class="h3">Visual Design</h2>
+          <p>Illustration, typography, photography and visual identity across print and digital contexts.</p>
+        </article>
+      </div>
+      <div class="col-md-4">
+        <article class="feature-card p-4">
+          <i class="bi bi-lightbulb feature-icon"></i>
+          <h2 class="h3">Creative Direction</h2>
+          <p>Turning briefs, research and feedback into coherent creative solutions for specific audiences.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer py-4 mt-5">
+  <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
+    <p class="mb-0">&copy; 2026 Marge Simpson Portfolio Demonstration</p>
+    <p class="mb-0"><a href="pdf/marge_simpson_resume.pdf" target="_blank">Download sample resume PDF</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

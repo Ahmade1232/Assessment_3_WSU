@@ -1,0 +1,442 @@
+/* INFO1005 Module 3.2 Marge Simpson multipage Bootstrap portfolio
+   Visual styling intentionally follows the Bart Simpson multipage template.
+   Palette adapted from the earlier Marge example.
+*/
+
+:root {
+  --brand-primary: #c0f905;
+  --brand-secondary: #82a510;
+  --brand-accent: #fb079a;
+  --brand-dark: #202124;
+  --brand-light: #f8ffed;
+  --brand-panel: #ffffff;
+  --brand-text: #333333;
+  --brand-muted: #666666;
+  --brand-border: #dce9b9;
+  --font-heading: 'Oswald', Arial, sans-serif;
+  --font-body: 'Montserrat', Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--brand-text);
+  background: var(--brand-light);
+  line-height: 1.6;
+}
+
+[data-bs-theme="dark"] body {
+  --brand-light: #151515;
+  --brand-panel: #202124;
+  --brand-text: #f3f7e9;
+  --brand-muted: #cdd6bd;
+  --brand-border: #44502f;
+  background: var(--brand-light);
+  color: var(--brand-text);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--brand-dark);
+  color: white;
+  padding: .75rem 1rem;
+  z-index: 2000;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+h1, h2, h3, h4, h5, .navbar-brand {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  color: var(--brand-primary);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+h2 { color: var(--brand-primary); font-size: clamp(2rem, 4vw, 3rem); }
+h3 { color: var(--brand-accent); font-size: 1.45rem; }
+h4 { color: var(--brand-muted); font-size: 1rem; letter-spacing: .08em; text-transform: uppercase; }
+
+a { color: var(--brand-secondary); }
+a:hover { color: var(--brand-primary); }
+
+/* NAVIGATION — same treatment as Bart multipage */
+.portfolio-nav {
+  background: var(--brand-panel);
+  border-bottom: 4px solid var(--brand-primary);
+}
+
+.brand-avatar {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--brand-primary);
+}
+
+.nav-link {
+  color: var(--brand-dark);
+  font-weight: 700;
+  border-radius: 999px;
+  padding-inline: .85rem !important;
+}
+
+[data-bs-theme="dark"] .nav-link,
+[data-bs-theme="dark"] .navbar-brand,
+[data-bs-theme="dark"] .theme-switch {
+  color: var(--brand-text);
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+  color: var(--brand-dark);
+  background: var(--brand-primary);
+}
+
+.navbar-toggler { border: 2px solid var(--brand-primary); }
+.theme-switch { color: var(--brand-dark); font-weight: 700; }
+.theme-switch .form-check-input:checked {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+/* HOME HERO — Bart layout with Marge image and green palette */
+.hero {
+  min-height: 70vh;
+  padding-block: 4rem;
+  background:
+    linear-gradient(90deg, rgba(248,255,237,.97), rgba(248,255,237,.76)),
+    url('../img/parallax1.jpg') center/cover no-repeat;
+}
+
+[data-bs-theme="dark"] .hero {
+  background:
+    linear-gradient(90deg, rgba(21,21,21,.96), rgba(21,21,21,.80)),
+    url('../img/parallax1.jpg') center/cover no-repeat;
+}
+
+.hero-img {
+  max-width: 340px;
+  border-radius: 2rem;
+  border: 10px solid var(--brand-primary);
+  box-shadow: 16px 16px 0 var(--brand-accent);
+}
+
+.standout {
+  color: var(--brand-secondary);
+  font-weight: 700;
+}
+
+.typing-heading {
+  min-height: 3.6rem;
+  margin-bottom: 1rem;
+}
+
+.typewrite {
+  color: var(--brand-primary);
+  border-right: .08em solid var(--brand-primary);
+  padding-right: .1em;
+  animation: blinkCursor .8s step-end infinite;
+}
+
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+/* BART TEMPLATE PANEL / CARD STYLES */
+.section-panel {
+  background: var(--brand-panel);
+  border: 1px solid var(--brand-border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+}
+
+.feature-card,
+.project-card,
+.resume-card {
+  background: var(--brand-panel);
+  border: 1px solid var(--brand-border);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  height: 100%;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.feature-card:hover,
+.project-card:hover,
+.resume-card:hover {
+  transform: translateY(-.25rem);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.12);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: var(--brand-accent);
+}
+
+.card-img-top,
+.project-thumb {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.project-thumb { cursor: zoom-in; }
+.project-card button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+}
+
+/* BART TEMPLATE PILL BUTTON STYLE */
+.btn-portfolio {
+  display: inline-block;
+  color: var(--brand-dark);
+  background: var(--brand-primary);
+  border: 2px solid var(--brand-secondary);
+  border-radius: 999px;
+  font-weight: 700;
+  padding: .85rem 1.2rem;
+  text-decoration: none;
+}
+
+.btn-portfolio:hover,
+.btn-portfolio:focus {
+  color: white;
+  background: var(--brand-secondary);
+}
+
+/* RESUME */
+.progress {
+  height: 2rem;
+  background: #e8efda;
+  border-radius: 999px;
+}
+
+.progress-bar {
+  background: var(--brand-secondary);
+  color: white;
+  font-weight: 700;
+}
+
+.progress-bar.secondary {
+  background: var(--brand-accent);
+}
+
+.progress-bar.tertiary {
+  background: var(--brand-primary);
+  color: var(--brand-dark);
+}
+
+.timeline-item {
+  border-left: 5px solid var(--brand-primary);
+  padding-left: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.pdf-frame {
+  width: 100%;
+  min-height: 520px;
+  border: 4px solid var(--brand-border);
+  border-radius: 1rem;
+}
+
+.optional-note {
+  border-left: 6px solid var(--brand-primary);
+  background: rgba(192,249,5,.13);
+  padding: 1rem;
+  border-radius: .75rem;
+}
+
+
+/* FIXED RESUME SKILLS SECTION
+   Dedicated skill cards prevent the generic 100% card height from
+   stretching or misaligning the skill rows. */
+.resume-card {
+  height: auto;
+}
+
+.skills-section {
+  margin-top: 2.5rem;
+}
+
+.skills-section > h2 {
+  margin-bottom: 1rem;
+}
+
+.skills-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.skill-card {
+  background: var(--brand-panel);
+  border: 1px solid var(--brand-border);
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.4rem;
+}
+
+.skill-card-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .8rem;
+}
+
+.skill-card-heading h3 {
+  margin: 0;
+  color: var(--brand-text);
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.skill-percentage {
+  flex: 0 0 auto;
+  min-width: 3.25rem;
+  text-align: right;
+  color: var(--brand-secondary);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.skill-card .progress {
+  width: 100%;
+  height: .9rem;
+  margin: 0;
+  overflow: hidden;
+}
+
+.skill-card .progress-bar {
+  min-width: 0;
+}
+
+@media (max-width: 575.98px) {
+  .skill-card {
+    padding: 1rem;
+  }
+
+  .skill-card-heading {
+    align-items: flex-start;
+  }
+
+  .skill-card-heading h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* RESPONSIVE PARALLAX */
+.resume-parallax {
+  min-height: 390px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(20,25,10,.38), rgba(20,25,10,.52)),
+    url('../img/parallax2.jpg') center/cover fixed no-repeat;
+  display: grid;
+  place-items: center;
+}
+
+.parallax-content {
+  padding: 4rem 1rem;
+}
+
+.resume-parallax h2,
+.resume-parallax .standout {
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,.7);
+}
+
+/* MODAL */
+.modal-content {
+  background: var(--brand-panel);
+  color: var(--brand-text);
+}
+
+.lightbox-image {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: .75rem;
+}
+
+/* FORM + MAP */
+.form-control,
+.form-select {
+  border: 2px solid var(--brand-border);
+  background: var(--brand-panel);
+  color: var(--brand-text);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 .25rem rgba(192,249,5,.20);
+}
+
+.map-frame {
+  overflow: hidden;
+  border: 4px solid var(--brand-primary);
+  border-radius: 1rem;
+}
+
+.map-frame iframe {
+  border: 0;
+}
+
+/* FOOTER — same dark footer as Bart */
+.site-footer {
+  background: var(--brand-dark);
+  color: white;
+}
+
+.site-footer a,
+.site-footer p {
+  color: white;
+}
+
+:focus-visible {
+  outline: 4px solid var(--brand-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 767.98px), (prefers-reduced-motion: reduce) {
+  .resume-parallax {
+    min-height: 240px;
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero {
+    min-height: auto;
+    padding-block: 2rem;
+  }
+
+  .hero-img {
+    max-width: 240px;
+    border-width: 6px;
+    box-shadow: 8px 8px 0 var(--brand-accent);
+  }
+
+  .section-panel {
+    padding: 1rem;
+  }
+
+  .card-img-top,
+  .project-thumb {
+    height: 180px;
+  }
+}
