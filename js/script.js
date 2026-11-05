@@ -5,6 +5,13 @@
   const html = document.documentElement;
   const switcher = document.querySelector('#themeSwitch');
 
+  // Home page: load both hero backgrounds up front so the theme switch never waits for an image.
+  if (document.querySelector('.hero')) {
+    ['img/hero-red-light.jpg', 'img/hero-red-dark.jpg'].forEach(function (src) {
+      new Image().src = src;
+    });
+  }
+
   let savedTheme = 'light';
   try {
     savedTheme = localStorage.getItem('marge-theme') || 'light';
@@ -19,12 +26,27 @@
 
     switcher.addEventListener('change', function () {
       const nextTheme = switcher.checked ? 'dark' : 'light';
-      html.setAttribute('data-bs-theme', nextTheme);
 
-      try {
-        localStorage.setItem('marge-theme', nextTheme);
-      } catch (error) {
-        // Theme switching still works if storage is unavailable.
+      function applyTheme() {
+        html.setAttribute('data-bs-theme', nextTheme);
+
+        try {
+          localStorage.setItem('marge-theme', nextTheme);
+        } catch (error) {
+          // Theme switching still works if storage is unavailable.
+        }
+      }
+
+      // js/paint-theme.js paints the change with a brush. If it is missing, or a
+      // paint job is already running, fall back to a normal switch.
+      if (window.PaintTheme) {
+        window.PaintTheme.run(nextTheme, applyTheme).then(function (started) {
+          if (!started) {
+            switcher.checked = html.getAttribute('data-bs-theme') === 'dark';
+          }
+        });
+      } else {
+        applyTheme();
       }
     });
   }

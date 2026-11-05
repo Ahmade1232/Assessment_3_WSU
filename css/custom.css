@@ -4,15 +4,15 @@
 */
 
 :root {
-  --brand-primary: #c0f905;
-  --brand-secondary: #82a510;
+  --brand-primary: #ff4d4d;
+  --brand-secondary: #b31217;
   --brand-accent: #fb079a;
   --brand-dark: #202124;
-  --brand-light: #f8ffed;
+  --brand-light: #fff5f5;
   --brand-panel: #ffffff;
   --brand-text: #333333;
   --brand-muted: #666666;
-  --brand-border: #dce9b9;
+  --brand-border: #f3c6c6;
   --font-heading: 'Oswald', Arial, sans-serif;
   --font-body: 'Montserrat', Arial, sans-serif;
 }
@@ -33,9 +33,9 @@ body {
 [data-bs-theme="dark"] body {
   --brand-light: #151515;
   --brand-panel: #202124;
-  --brand-text: #f3f7e9;
-  --brand-muted: #cdd6bd;
-  --brand-border: #44502f;
+  --brand-text: #fbeeee;
+  --brand-muted: #dbc3c3;
+  --brand-border: #5a2f2f;
   background: var(--brand-light);
   color: var(--brand-text);
 }
@@ -110,19 +110,19 @@ a:hover { color: var(--brand-primary); }
   border-color: var(--brand-primary);
 }
 
-/* HOME HERO — Bart layout with Marge image and green palette */
+/* HOME HERO — Bart layout with Marge image and red palette */
 .hero {
   min-height: 70vh;
   padding-block: 4rem;
   background:
-    linear-gradient(90deg, rgba(248,255,237,.97), rgba(248,255,237,.76)),
-    url('../img/parallax1.jpg') center/cover no-repeat;
+    linear-gradient(90deg, rgba(255,245,245,.80), rgba(255,245,245,.30)),
+    url('../img/hero-red-light.jpg') center/cover no-repeat;
 }
 
 [data-bs-theme="dark"] .hero {
   background:
-    linear-gradient(90deg, rgba(21,21,21,.96), rgba(21,21,21,.80)),
-    url('../img/parallax1.jpg') center/cover no-repeat;
+    linear-gradient(90deg, rgba(21,21,21,.75), rgba(21,21,21,.25)),
+    url('../img/hero-red-dark.jpg') center/cover no-repeat;
 }
 
 .hero-img {
@@ -220,7 +220,7 @@ a:hover { color: var(--brand-primary); }
 /* RESUME */
 .progress {
   height: 2rem;
-  background: #e8efda;
+  background: #f6dcdc;
   border-radius: 999px;
 }
 
@@ -254,7 +254,7 @@ a:hover { color: var(--brand-primary); }
 
 .optional-note {
   border-left: 6px solid var(--brand-primary);
-  background: rgba(192,249,5,.13);
+  background: rgba(255,77,77,.13);
   padding: 1rem;
   border-radius: .75rem;
 }
@@ -343,7 +343,7 @@ a:hover { color: var(--brand-primary); }
   border-radius: 1.5rem;
   overflow: hidden;
   background:
-    linear-gradient(rgba(20,25,10,.38), rgba(20,25,10,.52)),
+    linear-gradient(rgba(30,10,10,.38), rgba(30,10,10,.52)),
     url('../img/parallax2.jpg') center/cover fixed no-repeat;
   display: grid;
   place-items: center;
@@ -383,7 +383,7 @@ a:hover { color: var(--brand-primary); }
 .form-control:focus,
 .form-select:focus {
   border-color: var(--brand-primary);
-  box-shadow: 0 0 0 .25rem rgba(192,249,5,.20);
+  box-shadow: 0 0 0 .25rem rgba(255,77,77,.20);
 }
 
 .map-frame {
@@ -440,3 +440,36 @@ a:hover { color: var(--brand-primary); }
     height: 180px;
   }
 }
+
+/* ============================================================
+   PAINT-BRUSH THEME SWITCH (used by js/paint-theme.js)
+   ============================================================ */
+@property --pd-r { syntax: "<length>"; inherits: true; initial-value: 0px; }
+
+.pd-notrans, .pd-notrans *, .pd-notrans *::before, .pd-notrans *::after { transition: none !important; }
+
+/* text while it is being splashed with fresh paint */
+.pd-painting,
+.pd-painting * {
+  color: transparent !important;       /* also hides child spans/links until the paint lands */
+}
+.pd-painting * { border-color: transparent !important; }   /* e.g. the typewriter cursor */
+.pd-painting {
+  color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  background-image:
+    radial-gradient(circle at var(--pd-x, 50%) var(--pd-y, 50%), var(--pd-new) var(--pd-r), transparent calc(var(--pd-r) + 1px)),
+    linear-gradient(var(--pd-old), var(--pd-old)) !important;
+  transition: --pd-r 900ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.pd-wall  { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2147483000; display: none; touch-action: none; }
+.pd-brush { position: fixed; left: 0; top: 0; z-index: 2147483001; pointer-events: none; display: none; --h: 100px; --paint: #000; }
+.pd-brush .b { position: absolute; left: 0; top: 0; }
+.pd-bristles { position: absolute; left: calc(var(--h) * -.34); top: calc(var(--h) / -2); width: calc(var(--h) * .34); height: var(--h);
+  background: var(--paint); border: 3px solid rgba(140,140,140,.8); border-left-width: 0; border-radius: 3px 14px 14px 3px; box-sizing: border-box; }
+.pd-ferrule { position: absolute; left: calc(var(--h) * -.62); top: calc(var(--h) * -.42); width: calc(var(--h) * .28); height: calc(var(--h) * .84);
+  background: linear-gradient(#d9d9d9, #8a8a8a 50%, #d9d9d9); border-radius: 4px; }
+.pd-handle { position: absolute; left: calc(var(--h) * -2.1); top: calc(var(--h) * -.12); width: calc(var(--h) * 1.5); height: calc(var(--h) * .24);
+  background: linear-gradient(#d08a3c, #9b5a1c); border-radius: 999px 4px 4px 999px; transform-origin: right center; transform: rotate(16deg); }
